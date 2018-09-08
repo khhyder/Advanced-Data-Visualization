@@ -1,0 +1,76 @@
+<html>
+<head>
+<script>
+var NS="http://www.w3.org/2000/svg";
+var color = ['red']
+
+/*function insert(num) {
+			document.form.textview.value=document.form.textview.value+num
+		}*/
+function createHTMLElement(data) {
+	
+	var svgObj = document.getElementById('test');
+	
+	var shape =document.createElementNS(NS,"circle");
+		shape.setAttributeNS(null, "cx", 150);
+		shape.setAttributeNS(null, "cy", 150);
+		shape.setAttributeNS(null, "r",  data);
+		shape.setAttributeNS(null, "fill", color); 
+	   svgObj.append(shape);
+	
+}
+
+function createrect(data) {
+	
+	var svgObj = document.getElementById('test');
+	
+	var shape =document.createElementNS(NS,"rect");
+		shape.setAttributeNS(null, 'x', data);
+		shape.setAttributeNS(null, 'y', data);
+		shape.setAttributeNS(null, 'height', data);
+		shape.setAttributeNS(null, 'width', data);
+		shape.setAttributeNS(null, "fill", color); 
+	    svgObj.append(shape);
+
+       }
+
+function change() {
+	var data = document.form.textview.value
+   	createHTMLElement(data);
+}
+
+function rectg() {
+	var data = document.form.textview.value
+   	createrect(data);
+}
+
+function reload(){
+
+	location.reload();
+}
+</script>
+</head>
+<body>
+<h1 id="title">Q2: Draw circle and Rectangle</h1>
+
+<svg id='test' width=300 height=300>
+</svg>
+
+<form name="form">
+	<input class="textview" name="textview"> 
+</form>
+
+<input type="submit" id="byBtn" value="circle" onclick="change()"/>
+<input type="submit" id="byBtn" value="Rectangle" onclick="rectg()"/>
+<input type="submit" id="byBtn" value="Clear" onclick="reload()"/>
+
+<br> </br>
+
+<h2>  Please use the number range from 1 to 100 for better view </h2>
+<br> </br>
+<h3>  Submitted by: Khaled Hyder. ID: 500800613 </h3>
+
+
+
+</body>
+</html>
